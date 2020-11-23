@@ -46,12 +46,9 @@ export default {
     },
     listnum:{  // 加载列表友好显示
       handler(){
-          setTimeout(() => {
-            this.$refs.vanlist.$slots.default && this.$refs.vanlist.$slots.default.forEach(element => {
-            element.elm.classList.add('list-enter-active')
-          })
-          }, 0);
+          this.style()
       },
+      deep:true //true 深度监听
     }
   },
   data() {
@@ -62,12 +59,18 @@ export default {
     };
   },
   methods: {
+    style(){
+      this.$refs.vanlist.$slots.default && this.$refs.vanlist.$slots.default.forEach(element => {
+          element.elm.classList.add('list-enter-active')
+      })
+    },
     onLoad(clear = false) {
         if (this.refreshing) { //  为真的时候 是重新加载数据进来的  
           this.refreshing = false;  // 把下拉刷新值成 false
         }
         if (this.listnum >= this.maxlist && this.listnum != 0) {
           this.finished = true;     // 为true 时显示 “没有更多了”
+          this.style();
           return
         }
       this.$emit('onLoad',clear)
