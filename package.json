@@ -1,0 +1,16 @@
+{
+  "name": "clwlist",
+  "version": "1.0.1",
+  "description": "vue 移动端 vant 列表组件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "移动端"
+  ],
+  "author": "",
+  "homepage": "https://github.com/chenliwen123/clwlist",
+  "license": "ISC"
+}
