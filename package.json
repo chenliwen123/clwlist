@@ -12,5 +12,8 @@
   ],
   "author": "",
   "homepage": "https://github.com/chenliwen123/clwlist",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "npm": "^6.0.0"
+  }
 }
