@@ -41,15 +41,12 @@ export default {
     loading:{  // 解决loading 警告
       handler(){
         this.ploading = this.loading;
+        if(!this.loading){
+          this.style()
+        }
       },  
       deep:true //true 深度监听
     },
-    listnum:{  // 加载列表友好显示
-      handler(){
-          this.style()
-      },
-      deep:true //true 深度监听
-    }
   },
   data() {
     return {
@@ -60,9 +57,11 @@ export default {
   },
   methods: {
     style(){
-      this.$refs.vanlist.$slots.default && this.$refs.vanlist.$slots.default.forEach(element => {
+      setTimeout(() => {
+        this.$refs.vanlist.$slots.default && this.$refs.vanlist.$slots.default.forEach(element => {
           element.elm.classList.add('list-enter-active')
-      })
+        })
+      }, 100);
     },
     onLoad(clear = false) {
         if (this.refreshing) { //  为真的时候 是重新加载数据进来的  
