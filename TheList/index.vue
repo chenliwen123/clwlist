@@ -41,9 +41,6 @@ export default {
     loading:{  // 解决loading 警告
       handler(){
         this.ploading = this.loading;
-        if(!this.loading){
-          this.style()
-        }
       },  
       deep:true //true 深度监听
     },
@@ -56,20 +53,12 @@ export default {
     };
   },
   methods: {
-    style(){
-      setTimeout(() => {
-        this.$refs.vanlist.$slots.default && this.$refs.vanlist.$slots.default.forEach(element => {
-          element.elm.classList.add('list-enter-active')
-        })
-      }, 100);
-    },
     onLoad(clear = false) {
         if (this.refreshing) { //  为真的时候 是重新加载数据进来的  
           this.refreshing = false;  // 把下拉刷新值成 false
         }
         if (this.listnum >= this.maxlist && this.listnum != 0) {
           this.finished = true;     // 为true 时显示 “没有更多了”
-          this.style();
           return
         }
       this.$emit('onLoad',clear)
@@ -86,50 +75,3 @@ export default {
   }
 };
 </script>
-<style>
-.TheList .van-list > div{
-  opacity: 0;
-  transform: translateY(100%);
-}
-.TheList .list-enter-active {
-    transition: .3s;
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-.TheList .van-list__finished-text,.TheList .van-list__placeholder,.TheList .van-list__loading{
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    }
-.TheList .list-enter-active:nth-child(10n+1) {
-    transition-delay: .1s;
-}
-.TheList .list-enter-active:nth-child(10n+2) {
-    transition-delay: .2s;
-}
-.TheList .list-enter-active:nth-child(10n+3) {
-    transition-delay: .3s;
-}
-.TheList .list-enter-active:nth-child(10n+4) {
-    transition-delay: .4s;
-}
-.TheList .list-enter-active:nth-child(10n+5) {
-    transition-delay: .5s;
-}
-.TheList .list-enter-active:nth-child(10n+6) {
-    transition-delay: .6s;
-}
-.TheList .list-enter-active:nth-child(10n+7) {
-    transition-delay: .7s;
-}
-.TheList .list-enter-active:nth-child(10n+8) {
-    transition-delay: .8s;
-}
-.TheList .list-enter-active:nth-child(10n+9) {
-    transition-delay: .9s;
-}
-.TheList .list-enter-active:nth-child(10n+10) {
-    transition-delay: 1s;
-}
-</style>
-<style scoped>
-</style>
