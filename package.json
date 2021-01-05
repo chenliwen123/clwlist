@@ -1,6 +1,6 @@
 {
   "name": "clwlist",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "vue 移动端 vant 列表组件",
   "main": "index.js",
   "scripts": {
